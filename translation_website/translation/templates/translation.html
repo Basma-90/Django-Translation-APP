@@ -1,0 +1,32 @@
+<!-- translation.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Form</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Translation Form</h1>
+    <form action="{% url 'translate' %}" method="post">
+        {% csrf_token %}
+        <label for="text">Enter text to translate:</label><br>
+        <textarea id="text" name="text" rows="4" cols="50"></textarea><br>
+        <label for="source-lang">Select source language:</label>
+        <select id="source-lang" name="source-lang">
+            {% for code, name in supported_languages %}
+            <option value="{{ code }}">{{ name }}</option>
+            {% endfor %}
+        </select><br>
+        <label for="target-lang">Select target language:</label>
+        <select id="target-lang" name="target-lang" >
+            {% for code, name in supported_languages %}
+            <option value="{{ code }}">{{ name }}</option>
+            {% endfor %}
+        </select><br>
+        <input type="submit" value="Translate">
+    </form>
+</body>
+</html>

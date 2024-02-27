@@ -1,0 +1,24 @@
+<!-- translation_result.html -->
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation Result</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Translation Result</h1>
+        <div class="result">
+            <p>The translated text is:</p>
+            <div class="translated-text">
+                <p>{{ translated_text }}</p>
+            </div>
+        </div>
+        <a href="{% url 'home' %}">Back to Home</a>
+    </div>
+</body>
+</html>
